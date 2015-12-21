@@ -1,14 +1,9 @@
-#Rather than keeping a bulky section of aliases
-#if [ -f ~/.bash_aliases ]; then
-#    source ~/.bash_aliases
-#fi
+#Source outside files
 [ -f ~/.bash_path ] && . ~/.bash_path
 [ -f ~/.bash_aliases ] && . ~/.bash_aliases
+[ -f ~/.bash_work ] && . ~/.bash_work
+
 #source /usr/local/etc/bash_completion.d/password-store
-#Add the script folder to the path
-#export PATH="/Users/samfelt/bin:$PATH"
-export HEXRAYS_LICENSE_FILE=6200@asig.cisco.com
-export ASIG_TEMPLATES_REPO="/Users/samfelt/Projects/asig-templates"
 export GEM_HOME=~/.gem/ruby/2.0.0
 export GEM_PATH=$GEM_HOME/gems
 
@@ -144,6 +139,9 @@ trap _exit EXIT
 #    Command is added to the history file each time you hit enter,
 #    so it's available to all shells (using 'history -a').
 
+# Get what is running
+OS=$(uname -s)
+
 # Test connection type:
 if [ -n "${SSH_CONNECTION}" ]; then
     CNX=${Green}        # Connected on remote machine, via ssh (good).
@@ -163,7 +161,11 @@ else
 fi
 
 
-NCPU=$(sysctl -a | grep 'machdep.cpu.core_count' | grep -o "[^ ]*$")    # Number of CPUs
+if [ $OS == 'Darwin' ]; then
+    NCPU=$(sysctl -a | grep 'machdep.cpu.core_count' | grep -o "[^ ]*$")    # Number of CPUs
+else
+    NCPU=$(grep -c 'processor' /proc/cpuinfo)
+fi
 SLOAD=$(( 100*${NCPU} ))        # Small load
 MLOAD=$(( 200*${NCPU} ))        # Medium load
 XLOAD=$(( 400*${NCPU} ))        # Xlarge load
@@ -171,7 +173,11 @@ XLOAD=$(( 400*${NCPU} ))        # Xlarge load
 # Returns system load as percentage, i.e., '40' rather than '0.40)'.
 function load()
 {
-    local SYSLOAD=$(sysctl -n vm.loadavg | cut -d " " -f2 | tr -d '.')
+    if [ $OS == 'Darwin' ]; then
+        local SYSLOAD=$(sysctl -n vm.loadavg | cut -d " " -f2 | tr -d '.')
+    else
+        local SYSLOAD=$(cut -d " " -f1 /proc/loadavg | tr -d '.')
+    fi
     # System load of the current host.
     echo $((10#$SYSLOAD))       # Convert to decimal.
 }
