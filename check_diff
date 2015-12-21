@@ -1,0 +1,48 @@
+#! /usr/bin/env bash
+
+BWhite='\033[1;37m'
+BPurple='\033[1;35m'
+Green='\033[0;32m'
+Red='\033[0;31m'
+
+NC='\033[m'
+
+diff_found=0
+for f in $(find . -not -path "*.git/*" \
+                  -not -path "./.git" \
+                  -not -path "./README.md" \
+                  -not -path "./check_diff"); do
+    home_f="$HOME${f:1}"
+    if [ $f == "." ]; then
+        echo -e "${BPurple}dotfiles${NC}"
+        continue
+    fi
+
+    #Count how many directories deep the file is
+    depth=$(grep -o "/" <<< $f | wc -l)
+    echo -n "|"
+    for ((i=1;i<$depth;i++));do
+        echo -n "   |"
+    done
+    echo -n "__ "
+    if [ -d $f ]; then 
+        echo -e "${BPurple}`echo $f|rev|cut -d"/" -f1|rev`${NC}"
+    else
+        if [ -z "$(diff $f $home_f)" ]; then
+            echo -en ${Green}
+        else
+            echo -en ${Red}
+            ((diff_found++))
+        fi
+        echo -n $f|rev|cut -d"/" -f1|rev 
+        echo -ne ${NC}
+    fi
+done
+
+echo
+if [ $diff_found -ne 0 ]; then
+    echo -e "${Red}There were $diff_found diffs found"
+    echo -e "Please update repo or home directory${NC}"
+else
+    echo -e "${Green}No diffs were found${NC}"
+fi
