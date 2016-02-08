@@ -33,8 +33,6 @@ alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
 ##########################
 #      APPLICATIONS      #
 ##########################
-#alias todo='python3 ~/Applications/todo/todo.py ~/Applications/todo/list.todo'
-#alias t='python3 ~/Applications/todo/todo.py ~/Applications/todo/list.todo'
 alias v='vim'
 
 
