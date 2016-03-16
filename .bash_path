@@ -16,7 +16,8 @@ for item in ${list[@]}; do
 done
 
 #Find anything missing from original path
-for dir in $(echo $PATH | awk -F ":" '{for (i=0;i<=NF;i++) {print $i}}'); do
+#for dir in $(echo $PATH | awk -F ":" '{for (i=0;i<=NF;i++) {print $i}}'); do
+for dir in $(echo $PATH | tr ':' '\n'); do
     [ ! "$(echo $PTH | \grep $dir)" ] && PTH=$PTH:$dir
 done
 

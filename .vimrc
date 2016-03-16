@@ -49,6 +49,12 @@ highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
 """"""""""""""""""""""""""
+"    FOLDING             "
+""""""""""""""""""""""""""
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* loadview
+
+""""""""""""""""""""""""""
 "    PATHOGEN            "
 """"""""""""""""""""""""""
 execute pathogen#infect()
