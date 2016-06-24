@@ -1,4 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/Users/samfelt/Projects/Obsidian-project/Obsidian/testing/pusher'
-let g:netrw_dirhist_2='/'
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/samfelt/Applications/matasano/src'
+let g:netrw_dirhist_2='/Users/samfelt/Applications/matasano'
+let g:netrw_dirhist_3='/Users/samfelt/Applications/matasano/inc'
+let g:netrw_dirhist_4='/Users/samfelt/Applications/matasano'
+let g:netrw_dirhist_5='/Users/samfelt/Applications/matasano/src'
+let g:netrw_dirhist_6='/Users/samfelt/Applications/matasano/inc'
+let g:netrw_dirhist_7='/Users/samfelt/Applications/matasano'
+let g:netrw_dirhist_8='/Users/samfelt/Applications/matasano/src'
+let g:netrw_dirhist_9='/Users/samfelt/Applications/matasano/inc'

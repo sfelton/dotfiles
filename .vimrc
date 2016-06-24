@@ -1,6 +1,13 @@
 """"""""""""""""""""""""""
+"    PATHOGEN            "
+""""""""""""""""""""""""""
+execute pathogen#infect()
+filetype plugin indent on
+
+""""""""""""""""""""""""""
 "    INITIAL SETTINGS    "
-"""""""""""""""""""""""""" set autoindent      "Match indentation of the previous line
+"""""""""""""""""""""""""" 
+set autoindent      "Match indentation of the previous line
 set ignorecase      "Ignore case in text search
 set magic           "Allows pattern matching with special characters
 set showmode        "Status bar will tell you when you're in insert mode
@@ -19,8 +26,11 @@ set nocompatible
 set smartindent
 set showcmd
 set ruler
-color default       "other good color options: desert, zellner, default, slate
-syntax on           "Turn on syntax highlighting
+"color default       "other good color options: desert, zellner, default, slate
+
+syntax enable        "Turn on syntax highlighting
+set background=dark
+colorscheme solarized
 
 """"""""""""""""""""""""""
 "    STATUS LINE         "
@@ -49,16 +59,11 @@ highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
 """"""""""""""""""""""""""
-"    FOLDING             "
+"    VIEWS               "
 """"""""""""""""""""""""""
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* loadview
+"autocmd BufWinLeave *.* mkview
+"autocmd BufWinEnter *.* loadview
 
-""""""""""""""""""""""""""
-"    PATHOGEN            "
-""""""""""""""""""""""""""
-execute pathogen#infect()
-filetype plugin indent on
 
 """"""""""""""""""""""""""
 "    LINE NUMBERS        "

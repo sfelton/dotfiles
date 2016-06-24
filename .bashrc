@@ -94,7 +94,7 @@ echo -e "${BCyan}This is BASH ${BRed}${BASH_VERSION%.*}${BCyan}\
 - DISPLAY on ${BRed}$DISPLAY${NC}\n"
 
 if [ -x /usr/local/bin/fortune ]; then
-    /usr/local/bin/fortune -s
+    /usr/local/bin/fortune -a -s
 fi
 
 function _exit()
@@ -148,7 +148,7 @@ if [ -n "${SSH_CONNECTION}" ]; then
 elif [[ "${DISPLAY%%:0*}" != "" ]]; then
     CNX=${ALERT}        # Connected on remote machine, not via ssh (bad).
 else
-    CNX=${BCyan}        # Connected on local machine.
+    CNX=${Cyan}        # Connected on local machine.
 fi
 
 # Test user type:
@@ -157,7 +157,7 @@ if [[ ${USER} == "root" ]]; then
 elif [[ ${USER} != $(logname) ]]; then
     SU=${BRed}          # User is not login user.
 else
-    SU=${BCyan}         # User is normal (well ... most of us are).
+    SU=${Cyan}         # User is normal (well ... most of us are).
 fi
 
 
@@ -281,4 +281,13 @@ export HISTIGNORE="&:bg:fg:ll:h"
 export HISTTIMEFORMAT="$(echo -e ${BCyan})[%d/%m %H:%M:%S]$(echo -e ${NC}) "
 export HISTCONTROL=ignoredups
 export HOSTFILE=$HOME/.hosts    # Put a list of remote hosts in ~/.hosts
+export CUTE_BATTERY_INDICATOR=1
 
+#FUNCTIONS
+
+#ta - tmux attach - attach session from line $1 (zero indexed)
+function ta()
+{
+    session_name=$(tmux ls | sed -n $(($1 + 1))p | cut -d':' -f1)    
+    tmux attach -t "$session_name"
+}

@@ -19,6 +19,7 @@ alias ls1='ls -c1'
 alias ll='ls -Fl'
 alias lla='ls -Fla'
 alias dir='ls -Alg'
+alias tree="tree -C"
 alias fuck='sudo $(history -p !!)'
 
 #safe mode for rm, cp, and mv
@@ -35,6 +36,12 @@ alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
 ##########################
 alias v='vim'
 
+##########################
+#        TMUX            #
+##########################
+alias tls='tmux list-sessions -F "#{line} | #S: #{session_windows} windows"'
+alias tn='tmux new -s'
+#ta is implimented as a function in .bashrc
 
 ##########################
 #     COMMON MISTAKES    #
