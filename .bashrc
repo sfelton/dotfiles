@@ -4,7 +4,7 @@
 [ -f ~/.bash_work ] && . ~/.bash_work
 
 #source /usr/local/etc/bash_completion.d/password-store
-export GEM_HOME=~/.gem/ruby/2.0.0
+export GEM_HOME=~/.gem/ruby
 export GEM_PATH=$GEM_HOME/gems
 
 #-------------------------------------------------------------

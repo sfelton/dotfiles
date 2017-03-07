@@ -7,7 +7,7 @@ list=(  "/Users/$USER/bin"
         "/usr/sbin"
         "/sbin"
         "/usr/local/MacGPG2/bin"
-        "/Users/$USER/.gem/ruby/2.0.0/bin" 
+        "/Users/$USER/.gem/ruby/bin" 
         "/Users/$USER/.local/bin" )
 
 PTH=""

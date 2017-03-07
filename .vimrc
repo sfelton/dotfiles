@@ -84,6 +84,12 @@ autocmd InsertEnter * call ToggleNumbersOn()
 autocmd InsertLeave * call ToggleRelativeOn()
 
 """"""""""""""""""""""""""
+"    SYNTAX MODES        "
+""""""""""""""""""""""""""
+let g:vim_markdown_folding_style_pythonic = 1
+
+
+""""""""""""""""""""""""""
 "    KEY MAPPINGS        "
 """"""""""""""""""""""""""
 let mapleader = "-"            
@@ -93,6 +99,7 @@ inoremap <c-d> <esc>ddi|                        "Delete Line and keep editing
 inoremap <c-u> <esc>viwUi|                      "Capitiilze word
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel| "Wrap word in quotes
 noremap <leader>cl 0v$"*y0|                     "copy line to global buffer
+noremap <leader>v :set paste<cr>"*p<esc>:set nopaste<cr>
 
 "playing with todo list items
 nnoremap <leader>td ^i[]<space><esc>
@@ -118,6 +125,8 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+
 
 """"""""""""""""""""""""""
 "    SPELLING            "
