@@ -44,6 +44,13 @@ alias tn='tmux new -s'
 #ta is implimented as a function in .bashrc
 
 ##########################
+#        BREW            #
+##########################
+alias brinfo='brew info'
+alias brinstall='brew install'
+alias bremove='brew remove'
+
+##########################
 #     COMMON MISTAKES    #
 ##########################
 alias celar='clear'

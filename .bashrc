@@ -38,6 +38,8 @@ if [ -z ${DISPLAY:=""} ]; then
     fi
 fi
 
+TTY=$(tty)
+
 export DISPLAY
 
 #-------------------------------------------------------------
@@ -91,10 +93,17 @@ ALERT=${BWhite}${On_Red} # Bold White on red background
 #Welcome & Goodbye  Message
 #-------------------------------------------------------------
 echo -e "${BCyan}This is BASH ${BRed}${BASH_VERSION%.*}${BCyan}\
-- DISPLAY on ${BRed}$DISPLAY${NC}\n"
+- DISPLAY on ${BRed}$DISPLAY${NC}"
+echo -e "${BCyan}On TTY ${BRed}${TTY:5}${NC}\n"
 
 if [ -x /usr/local/bin/fortune ]; then
     /usr/local/bin/fortune -a -s
+fi
+
+wh_res=`type -t work_hello`
+if [ -n "$wh_res" -a "$wh_res" = "function" ]; then
+    echo
+    work_hello
 fi
 
 function _exit()

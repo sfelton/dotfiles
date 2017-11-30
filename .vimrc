@@ -126,7 +126,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-
+com! FormatJSON %!/usr/bin/python -m json.tool
 
 """"""""""""""""""""""""""
 "    SPELLING            "
