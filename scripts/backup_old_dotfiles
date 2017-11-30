@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+cd "${0%/*}/.."
+CONFIG='config.txt'
+BACKUP_DIR='backup'
+
+if [ ! -d $BACKUP_DIR ]; then
+   mkdir $BACKUP_DIR
+fi
+
+for f in $(cat $CONFIG); do
+    echo $f
+    cp -f ~/$f $BACKUP_DIR/$f
+done

@@ -8,10 +8,12 @@ Red='\033[0;31m'
 NC='\033[m'
 
 diff_found=0
+cd "${0%/*}/.."
 for f in $(find . -not -path "*.git/*" \
                   -not -path "./.git" \
                   -not -path "./README.md" \
-                  -not -path "./check_diff"); do
+                  -not -path "./scripts" \
+                  -not -path "./scripts/*"); do
     home_f="$HOME${f:1}"
     if [ $f == "." ]; then
         echo -e "${BPurple}dotfiles${NC}"
