@@ -1,5 +1,0 @@
-.bash_aliases
-.bash_path
-.bashrc
-.tmux.conf
-.vimrc

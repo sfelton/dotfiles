@@ -1,0 +1,13 @@
+#! /usr/bin/env bash
+
+cd "${0%/*}/.."
+source dotfiles.config
+
+echo "Linking dotfiles to home directory"
+
+#ln -s <original> <new>
+for f in ${files[@]}; do
+    echo "  $HOME/$f -> $PWD/$f"
+    rm $HOME/$f
+    ln -s $PWD/$f $HOME/$f
+done

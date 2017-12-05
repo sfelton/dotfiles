@@ -1,14 +1,18 @@
 #!/usr/bin/env bash
 
 cd "${0%/*}/.."
-CONFIG='config.txt'
+source dotfiles.config
 BACKUP_DIR='backup'
 
+
 if [ ! -d $BACKUP_DIR ]; then
-   mkdir $BACKUP_DIR
+    echo Creating backup directory
+    mkdir $BACKUP_DIR
 fi
 
-for f in $(cat $CONFIG); do
-    echo $f
+#for f in $(cat $CONFIG); do
+echo Backing up dotfiles
+for f in ${files[@]}; do
+    echo "  $f"
     cp -f ~/$f $BACKUP_DIR/$f
 done

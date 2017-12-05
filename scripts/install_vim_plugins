@@ -1,0 +1,27 @@
+#! /usr/bin/env bash
+
+cd "${0%/*}/.."
+source dotfiles.config
+
+BUNDLE="$HOME/.vim/bundle/"
+AUTOLOAD="$HOME/.vim/autoload/"
+
+if [ -e $AUTOLOAD/pathogen.vim -a -d $BUNDLE ]; then
+    echo "Pathogen is most likely already installed"
+else
+    echo Installing Pathogen...
+    mkdir -p $AUTOLOAD $BUNDLE && \
+    curl -LSso $AUTOLOAD/pathogen.vim https://tpo.pe/pathogen.vim
+fi
+
+echo Installing Vim Plugins...
+
+for l in ${vim_plugins[@]}; do
+    dir=$(basename $l)
+    echo "  $dir"
+    if [ -d $BUNDLE/$dir ]; then
+        echo "    Directory already exists"
+    else
+        git clone -q $l $HOME/.vim/bundle/$(basename $l)
+    fi
+done
