@@ -7,6 +7,7 @@
 export GEM_HOME=~/.gem/ruby
 export GEM_PATH=$GEM_HOME/gems
 
+# A lot is borrowed from from http://tldp.org/LDP/abs/html/sample-bashrc.html
 #-------------------------------------------------------------
 #  Automatic setting of $DISPLAY (if not set already).
 #  This works for me - your mileage may vary. . . .
