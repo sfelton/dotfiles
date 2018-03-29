@@ -1,0 +1,33 @@
+#! /usr/bin/env bash
+
+cd "${0%/*}/.."
+source dotfiles.config
+
+# Install Homebrew if not already
+if [ ! $(command -v brew) ]; then
+    echo Installing Homebrew...
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else
+    echo Homebrew already installed
+fi
+
+# Make sure brew is updated
+echo Updating homebrew...
+brew update
+brew upgrade
+
+# Install Brew Formula
+echo Installing homebrew formula...
+for l in ${brew_formula[@]}; do
+    echo "  Installing $l"
+    brew install $l
+done
+
+# Install Brew Cask Formula
+echo "Installing homebrew cask..."
+for l in ${brew_cask_formula[@]}; do
+    echo "  Installing $l"
+    brew cask install $l
+done
+
+

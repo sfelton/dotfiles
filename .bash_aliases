@@ -42,6 +42,7 @@ alias v='vim'
 alias tls='tmux list-sessions -F "#{line} | #S: #{session_windows} windows"'
 alias tn='tmux new -s'
 #ta is implimented as a function in .bashrc
+alias screemux='echo TMUX;tmux ls;echo SCREEN; screen -ls'
 
 ##########################
 #        BREW            #
