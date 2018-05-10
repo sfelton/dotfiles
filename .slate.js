@@ -107,6 +107,20 @@ var twoMonitorLayout = slate.layout("twoMonitors", {
     },
 });
 
+var oneMonitorLayout = slate.layout("oneMonitor", {
+    "_before_" : {},
+    "_after_" : {},
+    "Textual IRC Client" : {
+        "operations" : [leftHalf]
+    },
+    "iTerm2" : {
+        "operations" : rightHalf
+    },
+    "Firefox" : {
+        "operations" : fullScreen
+    },
+});
+
 
 
 // Main Push Keys
@@ -130,6 +144,7 @@ slate.bind("2:cmd;alt", throw1)
 slate.bind("3:cmd;alt", throw2)
 
 // Layouts Keys
+slate.bind("1:cmd;alt;shift", slate.operation("layout", { "name" : oneMonitorLayout }));
 slate.bind("2:cmd;alt;shift", slate.operation("layout", { "name" : twoMonitorLayout }));
 
 
