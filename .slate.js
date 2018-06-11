@@ -86,7 +86,7 @@ var twoMonitorLayout = slate.layout("twoMonitors", {
             windowObject.doOperation(bottomHalf);
         }]
     },
-    "Cisco Spark" : {
+    "Webex Teams" : {
         "operations" : [function(windowObject) {
             windowObject.doOperation(throw0);
             windowObject.doOperation(topHalf);
