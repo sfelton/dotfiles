@@ -83,13 +83,13 @@ var twoMonitorLayout = slate.layout("twoMonitors", {
     "Textual IRC Client" : {
         "operations" : [function(windowObject) {
             windowObject.doOperation(throw0);
-            windowObject.doOperation(bottomHalf);
+            windowObject.doOperation(leftHalf);
         }]
     },
     "Webex Teams" : {
         "operations" : [function(windowObject) {
             windowObject.doOperation(throw0);
-            windowObject.doOperation(topHalf);
+            windowObject.doOperation(rightHalf);
         }]
     },
     "iTerm2" : {
@@ -142,6 +142,12 @@ slate.bind("e:cmd;alt", topRight)
 slate.bind("1:cmd;alt", throw0)
 slate.bind("2:cmd;alt", throw1)
 slate.bind("3:cmd;alt", throw2)
+
+//Main Nudge keys
+slate.bind("up:cmd", slate.operation("nudge", { "x" : "+0", "y" : "-10" }));
+slate.bind("down:cmd", slate.operation("nudge", { "x" : "+0", "y" : "+10" }));
+slate.bind("left:cmd", slate.operation("nudge", { "x" : "-10", "y" : "+0" }));
+slate.bind("right:cmd", slate.operation("nudge", { "x" : "+10", "y" : "+0" }));
 
 // Layouts Keys
 slate.bind("1:cmd;alt;shift", slate.operation("layout", { "name" : oneMonitorLayout }));
