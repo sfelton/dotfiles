@@ -60,6 +60,7 @@ alias cim='vim'
 ##########################
 #     MISC ALIASES	 #
 ##########################
+alias rot13="tr 'A-Za-z' 'N-ZA-Mn-za-m'"
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias treefile='find . -exec file -b {} + | sort | uniq -c | sort -rn'
 alias avassh='cat ~/.ssh/config | grep "host " | cut -d" " -f2-'
