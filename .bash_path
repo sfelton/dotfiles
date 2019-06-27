@@ -1,6 +1,7 @@
 #This file will build the path.  It should be sourced from ~/.bashrc
 
 list=(  "/Users/$USER/bin"
+        "/usr/local/sbin"
         "/usr/local/bin"
         "/usr/bin"
         "/bin"
